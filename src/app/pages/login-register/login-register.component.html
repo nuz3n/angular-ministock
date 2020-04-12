@@ -22,15 +22,24 @@
           <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
             <form>
               <div class="form-group">
-                <input type="email" name="email" class="form-control" id="email" placeholder="Email" required autofocus>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="userData.email" required autofocus>
               </div>
   
               <div class="form-group">
-                <input type="password" name="password" class="form-control" id="password" id="password" placeholder="Password" required>
+                <input type="password" name="password" class="form-control" id="password" id="password" placeholder="Password" [(ngModel)]="userData.password" required>
               </div>
-  
+              <h5>One way binding</h5>
+              <p>
+                {{ 2+3 }}
+                {{ message }}
+                {{ profile.name }} {{ profile.tel }} {{ profile.gender }}
+              </p>
+              <h5>Two way binding</h5>
+              <p>
+                {{ userData | json }}
+              </p>
               <div class="text-center pt-4">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="button" class="btn btn-primary" (click)="submitLogin()">Login</button>
               </div>
             </form>
           </div>
