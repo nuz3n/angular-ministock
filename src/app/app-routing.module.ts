@@ -8,7 +8,8 @@ import { LoginRegisterLayoutComponent } from './layouts/login-register-layout/lo
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
 import { AboutComponent } from './pages/frontend/about/about.component';
 import { ContactComponent } from './pages/frontend/contact/contact.component';
-
+//backend
+import { UsersComponent } from './pages/backend/users/users.component';
 
 const routes: Routes = [
    // Route สำหรับเรียกหน้า Frontend Layout
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path: "",
         component: DashboardComponent
+      },
+      {
+        path: 'users',
+        component: UsersComponent
       }
     ]
   },

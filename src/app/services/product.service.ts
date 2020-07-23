@@ -16,12 +16,30 @@ export class ProductService {
   // Headers
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
     })
   }
  
    // อ่านข้อมูล Product
-   getProducts(): Observable<ProductModel>{
+  getProducts(): Observable<ProductModel>{
     return this.http.get<ProductModel>(this.apiUrl+ 'products')
   }
+
+  getProduct(id): Observable<ProductModel>{
+    return this.http.get<ProductModel>(this.apiUrl+ 'product/'+id)
+  }
+
+  createProduct(product): Observable<ProductModel>{
+    return this.http.post<ProductModel>(this.apiUrl + "product", JSON.stringify(product), this.httpOptions)
+  }
+
+  updateProduct(id, product): Observable<ProductModel>{
+    return this.http.put<ProductModel>(this.apiUrl + "product/"+id, JSON.stringify(product), this.httpOptions)
+  }
+
+  deleteProduct(id){
+    return this.http.delete<ProductModel>(this.apiUrl + "product/"+id, this.httpOptions)
+  }
+
 }
